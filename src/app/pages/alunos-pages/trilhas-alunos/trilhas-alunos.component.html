@@ -1,0 +1,26 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>Trilhas</h2>
+</div>
+<p-table [value]="trilhas" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nome</th>
+            <th>Nível</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-trilha>
+        <tr>
+            <td>{{trilha.nome}}</td>
+            <td>{{trilha.nivel}}</td>
+            <td>{{trilha.progresso}}</td>
+            <td>
+                <a
+                    [title]="'Jogar'"
+                    [routerLink]="['/aluno-trilha/trilha', trilha.trilhaId]">
+                </a>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

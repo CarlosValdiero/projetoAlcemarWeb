@@ -1,0 +1,56 @@
+<form  *ngIf="trilha" class="content-aluno-modal">
+    <div class="form-field">
+        <label for="nome">Nome </label>
+        <input pInputText id="nome" type="text" [(ngModel)]="trilha.nome" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-field">
+        <label for="descricao">Descrição </label>
+        <input pInputText id="descricao" type="text" [(ngModel)]="trilha.descricao" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-field">
+        <label for="nivel">Dificuldade </label>
+        <p-dropdown id="nivel"[options]="niveisOptions" [(ngModel)]="trilha.nivel" [ngModelOptions]="{standalone: true}" (onChange)="selectNivel()"></p-dropdown>
+    </div>
+
+    <div style="display: flex;">
+        <div>
+            <div *ngFor="let fase of trilha.fases; index as i" class="respostas-form">
+                <p-fieldset [legend]="fase.ordem +' fase'" [toggleable]="true" >
+                    <p-dropdown id="nivel"[options]="perguntasOptions" (onChange)="addPerguntaFase(fase, $event)" 
+                    [disabled]="disableFase(fase)" [(ngModel)]="fase.optionModal" [ngModelOptions]="{standalone: true}"></p-dropdown>
+                    <p-table [value]="fase.perguntasFase" responsiveLayout="scroll">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Nível</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-perguntaFase>
+                            <tr>
+                                <td>{{perguntaFase.pergunta.id}}</td>
+                                <td>{{perguntaFase.pergunta.descricao}}</td>
+                                <td>{{perguntaFase.pergunta.nivel}}</td>
+                                <td>{{perguntaFase.pergunta.ativo}}</td>
+                                <td>
+                                    <button pButton label="Visualizar" (click)="visualizarPergunta(perguntaFase.pergunta)"></button>
+                                </td>
+                                <td>
+                                    <button pButton label="Remover" (click)="removePergunta(fase, perguntaFase.pergunta)"></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-fieldset>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="buttons-modal">
+        <button pButton label="Fechar" (click)="fechar()"></button>
+        <button pButton label="Salvar" (click)="salvar()" [disabled]="!trilha"></button>
+    </div>
+</form>

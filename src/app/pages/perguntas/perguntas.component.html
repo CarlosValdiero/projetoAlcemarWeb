@@ -1,0 +1,25 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>Perguntas</h2>
+    <input type="text" pInputText placeholder="filtrar">
+    <button pButton label="Adicionar" icon="pi pi-plus" (click)="openModal()"></button>
+</div>
+<p-table [value]="perguntas" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Código</th>
+            <th>Pergunta</th>
+            <th>Nível</th>
+            <th>Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pergunta>
+        <tr>
+            <td>{{pergunta.id}}</td>
+            <td>{{pergunta.descricao}}</td>
+            <td>{{pergunta.nivel}}</td>
+            <td>
+                <button pButton label="Editar" (click)="openModal(pergunta)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -1,0 +1,25 @@
+<form  *ngIf="pergunta" class="content-aluno-modal">
+    <div class="form-field">
+        <label for="pergunta">Pergunta </label>
+        <input pInputText id="pergunta" type="text" [(ngModel)]="pergunta.descricao" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-field">
+        <label for="nivel">Dificuldade </label>
+        <p-dropdown id="nivel"[options]="niveisOptions" [(ngModel)]="pergunta.nivel" [ngModelOptions]="{standalone: true}"></p-dropdown>
+    </div>
+
+    <div style="display: flex;">
+        <div>
+            <div *ngFor="let resposta of pergunta.respostas; index as i" class="respostas-form">
+                <p-radioButton name="respostaCorreta" [label]="resposta.cod" [value]="resposta.cod" [(ngModel)]="pergunta.respostaCorretaCod" [ngModelOptions]="{standalone: true}"></p-radioButton>
+                <input pInputText id="resposta" type="text" [(ngModel)]="resposta.descricao" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="buttons-modal">
+        <button pButton label="Fechar" (click)="fechar()"></button>
+        <button pButton label="Salvar" (click)="salvar()" [disabled]="!pergunta"></button>
+    </div>
+</form>

@@ -1,0 +1,19 @@
+<form [formGroup]="alunoForm" *ngIf="alunoForm" class="content-aluno-modal">
+    <div class="form-field">
+        <label for="matricula">Matricula </label>
+        <input pInputText id="matricula" type="number" formControlName="matricula">
+    </div>
+    <div class="form-field">
+        <label for="nome">Nome </label>
+        <input pInputText id="nome" type="text" formControlName="nome">
+    </div>
+    <div class="form-field">
+        <label for="email">E-mail </label>
+        <input pInputText id="email" type="text" formControlName="email">
+    </div>
+
+    <div class="buttons-modal">
+        <button pButton label="Fechar" (click)="fechar()"></button>
+        <button pButton label="Salvar" (click)="salvar()" [disabled]="alunoForm.invalid"></button>
+    </div>
+  </form>

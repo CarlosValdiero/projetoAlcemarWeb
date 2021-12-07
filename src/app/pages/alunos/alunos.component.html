@@ -1,0 +1,19 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>Alunos</h2>
+    <input type="text" pInputText placeholder="filtrar">
+    <button pButton label="Adicionar" icon="pi pi-plus" (click)="openModal()"></button>
+</div>
+<p-table [value]="alunos" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Matricula</th>
+            <th>Nome</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-aluno>
+        <tr>
+            <td>{{aluno.matricula}}</td>
+            <td>{{aluno.usuario.nome}}</td>
+        </tr>
+    </ng-template>
+</p-table>
