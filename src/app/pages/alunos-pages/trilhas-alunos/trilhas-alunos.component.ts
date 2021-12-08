@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { AlunoTrilhaDTO } from 'src/app/models/dto/aluno-trilha-dto';
-import { Trilha } from 'src/app/models/Trilha';
 import { AlunoTrilhasService } from 'src/app/services/aluno-trilhas/aluno-trilhas.service';
 @Component({
   selector: 'app-trilhas-alunos',

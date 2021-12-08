@@ -15,4 +15,9 @@ export class AlunoTrilhasService {
   getAll(): Observable<AlunoTrilhaDTO[]>{
     return this.http.get('/aluno-trilhas').pipe(map(data => data as AlunoTrilhaDTO[]));
   }
+
+
+  getTrilha(id: string): Observable<any>{
+    return this.http.get('/aluno-trilhas/'+id).pipe(map(data => data as any));
+  }
 }

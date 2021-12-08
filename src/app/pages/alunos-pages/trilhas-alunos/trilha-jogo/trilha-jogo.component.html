@@ -1,0 +1,13 @@
+<div class="header">
+    <h1>{{jogo.trilha.nome}}</h1>
+    <h2>{{jogo.progresso | percent}}</h2>
+</div>
+<div>
+    <h2>Descrição do jogo</h2>
+    <p>{{jogo.trilha.nome}}</p>
+</div>
+<div class="content">
+    <div class="fase" *ngFor="let fase of jogo.fases; index as i" [ngClass]="{'end': i%2 == 0 }">
+        <app-fase [fase]="fase"></app-fase>
+    </div>
+</div>

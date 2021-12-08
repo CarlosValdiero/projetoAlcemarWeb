@@ -26,7 +26,8 @@ import { PerguntasModalComponent } from './pages/perguntas/perguntas-modal/pergu
 import { TrilhasComponent } from './pages/trilhas/trilhas.component';
 import { TrilhasModalComponent } from './pages/trilhas/trilhas-modal/trilhas-modal.component';
 import { TrilhasAlunosComponent } from './pages/alunos-pages/trilhas-alunos/trilhas-alunos.component';
-import { TrilhaComponent } from './pages/alunos-pages/trilhas-alunos/trilha/trilha.component';
+import { TrilhaJogoComponent } from './pages/alunos-pages/trilhas-alunos/trilha-jogo/trilha-jogo.component';
+import { FaseComponent } from './pages/alunos-pages/trilhas-alunos/trilha-jogo/fase/fase.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TrilhaComponent } from './pages/alunos-pages/trilhas-alunos/trilha/tril
     TrilhasComponent,
     TrilhasModalComponent,
     TrilhasAlunosComponent,
-    TrilhaComponent
+    TrilhaJogoComponent,
+    FaseComponent
   ],
   imports: [
     BrowserModule,
